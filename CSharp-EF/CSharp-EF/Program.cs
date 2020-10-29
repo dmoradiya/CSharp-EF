@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharp_EF.Models;
+using System;
 
 namespace CSharp_EF
 {
@@ -6,7 +7,18 @@ namespace CSharp_EF
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            VehicleContext context = new VehicleContext();
+
+            context.Vehicle.Add(new Vehicle()
+            {
+               Id = 9,
+               Manufacturer = "Honda",
+               Model = "Civic",
+               ModelYear = 2006,
+               Colour = "Blue"
+
+            });
+            context.SaveChanges();
         }
     }
 }
